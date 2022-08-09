@@ -3,7 +3,5 @@
   "trailingComma": "none",
   "arrowParens": "avoid",
   "endOfLine": "auto",
-  "singleQuote": false,
-  "useTabs": true,
-  "tabWidth": 2
+  "singleQuote": false
 }

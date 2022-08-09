@@ -25,67 +25,67 @@ const OutputOptions = require("./build/output")
 const cwd = __dirname
 
 const globals = {
-	vue: "Vue",
-	ELEMENT: "element-ui"
+  vue: "Vue",
+  ELEMENT: "element-ui"
 }
 
 module.exports = {
-	input: join(cwd, "/src/index.js"),
-	onwarn: warning => {
-		if (typeof warning === "string") {
-			return colors.yellow("warning")
-		}
-		const code = (warning.code || "").toLowerCase()
-		if (code === "mixed_exports" || code === "missing_global_name") {
-			return
-		}
-		const message = warning.message
-		console.log(`${colors.yellow(`${code}`)}${colors.dim(":")} ${message}`)
-	},
-	output: OutputOptions(),
-	external: Object.keys(globals || {}).filter(v => !/^[\.\/]/.test(v)),
-	plugins: [
-		vuePlugin({
-			css: false
-		}),
-		postcss({
-			minimize: true,
-			extract: false,
-			plugins: [
-				cssUrl({
-					imgExtensions: /\.(png|jpg|jpeg|gif|svg)$/,
-					fontExtensions: /\.(ttf|woff|woff2|eot)$/,
-					limit: 8192,
-					hash: false,
-					slash: false
-				})
-			]
-		}),
-		externals({
-			devDeps: false
-		}),
-		formCreateNodeResolve(),
-		nodeResolve({
-			extensions: [".js", ".json", ".jsx", ".ts", ".tsx"],
-			preferBuiltins: true,
-			jsnext: true,
-			module: true
-		}),
-		commonjs({
-			ignore: name => {
-				return isExternal(not_externals, name)
-			}
-		}),
-		babel({
-			babelHelpers: "bundled",
-			exclude: "node_modules/**",
-			extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".vue"]
-		}),
-		replace({
-			preventAssignment: true,
-			"process.env.NODE_ENV": JSON.stringify("production")
-		}),
-		buble(),
-		visualizer()
-	]
+  input: join(cwd, "/src/index.js"),
+  onwarn: warning => {
+    if (typeof warning === "string") {
+      return colors.yellow("warning")
+    }
+    const code = (warning.code || "").toLowerCase()
+    if (code === "mixed_exports" || code === "missing_global_name") {
+      return
+    }
+    const message = warning.message
+    console.log(`${colors.yellow(`${code}`)}${colors.dim(":")} ${message}`)
+  },
+  output: OutputOptions(),
+  external: Object.keys(globals || {}).filter(v => !/^[\.\/]/.test(v)),
+  plugins: [
+    vuePlugin({
+      css: false
+    }),
+    postcss({
+      minimize: true,
+      extract: false,
+      plugins: [
+        cssUrl({
+          imgExtensions: /\.(png|jpg|jpeg|gif|svg)$/,
+          fontExtensions: /\.(ttf|woff|woff2|eot)$/,
+          limit: 8192,
+          hash: false,
+          slash: false
+        })
+      ]
+    }),
+    externals({
+      devDeps: false
+    }),
+    formCreateNodeResolve(),
+    nodeResolve({
+      extensions: [".js", ".json", ".jsx", ".ts", ".tsx"],
+      preferBuiltins: true,
+      jsnext: true,
+      module: true
+    }),
+    commonjs({
+      ignore: name => {
+        return isExternal(not_externals, name)
+      }
+    }),
+    babel({
+      babelHelpers: "bundled",
+      exclude: "node_modules/**",
+      extensions: [".js", ".jsx", ".mjs", ".ts", ".tsx", ".vue"]
+    }),
+    replace({
+      preventAssignment: true,
+      "process.env.NODE_ENV": JSON.stringify("production")
+    }),
+    buble(),
+    visualizer()
+  ]
 }

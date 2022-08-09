@@ -11,27 +11,27 @@ import { not_externals, isExternal } from "../../utils/isExternal"
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
 export default options => {
-	const plugin = nodeResolve({
-		extensions: [".js", ".json", ".jsx", ".ts", ".tsx"],
-		preferBuiltins: true,
-		jsnext: true,
-		module: true
-	})
+  const plugin = nodeResolve({
+    extensions: [".js", ".json", ".jsx", ".ts", ".tsx"],
+    preferBuiltins: true,
+    jsnext: true,
+    module: true
+  })
 
-	return {
-		name: "form-create-node-resolve",
-		async resolveId(importee, importer) {
-			const id = await plugin.resolveId(
-				importee,
-				importer || "src/__no_importer__.js"
-			)
-			if (id && typeof id.id === "string") {
-				if (isExternal(not_externals, id.id)) {
-					return false
-				}
-			}
+  return {
+    name: "form-create-node-resolve",
+    async resolveId(importee, importer) {
+      const id = await plugin.resolveId(
+        importee,
+        importer || "src/__no_importer__.js"
+      )
+      if (id && typeof id.id === "string") {
+        if (isExternal(not_externals, id.id)) {
+          return false
+        }
+      }
 
-			return id
-		}
-	}
+      return id
+    }
+  }
 }
