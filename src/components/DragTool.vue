@@ -1,8 +1,16 @@
 <template>
-  <div class="drag-tool" @click.stop="active" :class="{active: state.active === id}">
+  <div
+    class="drag-tool"
+    @click.stop="active"
+    :class="{ active: state.active === id }"
+  >
     <div class="drag-mask" v-if="mask"></div>
     <div class="drag-l">
-      <div class="drag-btn _fc-drag-btn" v-if="state.active === id && dragBtn !== false" style="cursor: move;">
+      <div
+        class="drag-btn _fc-drag-btn"
+        v-if="state.active === id && dragBtn !== false"
+        style="cursor: move"
+      >
         <i class="fc-icon icon-move"></i>
       </div>
     </div>
@@ -25,28 +33,28 @@
 </template>
 
 <script>
-let id = 1;
+let id = 1
 export default {
-    name: 'DragTool',
-    inject: ['fcx'],
-    props: ['dragBtn', 'children', 'unique', 'mask'],
-    data() {
-        return {
-            id: this.unique || id++,
-            state: this.fcx
-        };
-    },
-    methods: {
-        active() {
-            if (this.state.active === this.id) return;
-            this.state.active = this.id;
-            this.$emit('active');
-        }
-    },
-    beforeDestroy() {
-        this.state = {};
+  name: "DragTool",
+  inject: ["fcx"],
+  props: ["dragBtn", "children", "unique", "mask"],
+  data() {
+    return {
+      id: this.unique || id++,
+      state: this.fcx
     }
-};
+  },
+  methods: {
+    active() {
+      if (this.state.active === this.id) return
+      this.state.active = this.id
+      this.$emit("active")
+    }
+  },
+  beforeUnmount() {
+    this.state = {}
+  }
+}
 </script>
 
 <style>
@@ -55,7 +63,7 @@ export default {
   min-height: 20px;
   box-sizing: border-box;
   padding: 2px;
-  outline: 1px dashed #2E73FF;
+  outline: 1px dashed #2e73ff;
   overflow: hidden;
   word-wrap: break-word;
   word-break: break-all;
@@ -70,7 +78,7 @@ export default {
 }
 
 .drag-tool.active {
-  outline: 2px solid #2E73FF;
+  outline: 2px solid #2e73ff;
 }
 
 .drag-tool.active > div > .drag-btn {
@@ -92,15 +100,14 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1904
-
+  z-index: 1904;
 }
 
 .drag-btn {
   height: 18px;
   width: 18px;
   color: #fff;
-  background-color: #2E73FF;
+  background-color: #2e73ff;
   text-align: center;
   line-height: 20px;
   padding-bottom: 1px;
@@ -114,19 +121,19 @@ export default {
 }
 
 .drag-btn-danger {
-  background-color: #FF2E2E;
+  background-color: #ff2e2e;
 }
 
 .drag-btn i {
   font-size: 13px;
 }
 
-.drag-mask{
-    z-index: 1900;
-    position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom: 0;
-;}
+.drag-mask {
+  z-index: 1900;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 </style>

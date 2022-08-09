@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <template>
   <div id="app">
     <div class="_fc-t-header">
