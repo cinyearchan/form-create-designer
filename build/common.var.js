@@ -7,11 +7,10 @@
  * @FilePath     : /build/common.var.js
  */
 const globals = {
-    vue: 'Vue',
-    ELEMENT: 'element-ui'
-};
-
+  vue: "Vue",
+  ELEMENT: "element-ui"
+}
 
 module.exports = {
-    globals
-};
+  globals
+}

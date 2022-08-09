@@ -1,31 +1,29 @@
-import {Rule} from "@form-create/element-ui";
+import { Rule } from "@form-create/element-ui"
 
 export interface MenuItem {
-    label: string,
-    name: string,
-    icon: string;
+  label: string
+  name: string
+  icon: string
 }
 
 export interface Menu {
-    title: string;
-    name: string;
-    list: MenuItem[]
+  title: string
+  name: string
+  list: MenuItem[]
 }
 
-export interface MenuList extends Array<Menu> {
-
-}
+export interface MenuList extends Array<Menu> {}
 
 export interface DragRule {
-    name: string;
+  name: string
 
-    rule(): Rule;
+  rule(): Rule
 
-    props(): Rule[];
+  props(): Rule[]
 
-    children?: string;
-    inside?: true;
-    drag?: true | String;
-    dragBtn?: false;
-    mask?: false;
+  children?: string
+  inside?: true
+  drag?: true | String
+  dragBtn?: false
+  mask?: false
 }

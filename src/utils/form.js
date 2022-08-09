@@ -1,9 +1,9 @@
-import formCreate from '@form-create/element-ui';
+import formCreate from "@form-create/element-ui"
 
-const viewForm = formCreate;
+const viewForm = formCreate
 
-const designerForm = formCreate.factory();
+const designerForm = formCreate.factory()
 
-export default viewForm;
+export default viewForm
 
-export {designerForm};
+export { designerForm }
