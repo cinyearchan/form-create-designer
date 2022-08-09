@@ -7,12 +7,12 @@
  * @FilePath      : /form-create2/packages/iview4/babel.config.js
  */
 module.exports = {
-    presets: [
-        [
-            '@vue/cli-plugin-babel/preset',
-            {
-                useBuiltIns: false
-            }
-        ]
-    ]
-};
+	presets: [
+		[
+			"@vue/cli-plugin-babel/preset",
+			{
+				useBuiltIns: false
+			}
+		]
+	]
+}

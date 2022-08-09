@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"sourceMap": true,
+		"allowUnreachableCode": true,
+    "allowSyntheticDefaultImports": true,
+		"allowJs": false,
+		"experimentalDecorators": true,
+		"moduleResolution": "node",
+		"noImplicitThis": true,
+		"noImplicitAny": false,
+		"importHelpers": true,
+		"jsx": "preserve"
+	},
+	"include": [
+		"*.vue",
+		"*",
+    "types/index.d.ts"
+	]
+}
