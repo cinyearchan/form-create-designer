@@ -10,6 +10,7 @@ module.exports = {
   productionSourceMap: false,
   configureWebpack: {
     resolve: {
+      extensions: [".js", ".json", ".vue"],
       alias: {
         vue$: "vue/dist/vue.js",
         "@form-create/element-ui$":

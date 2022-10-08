@@ -66,3 +66,5 @@ typings/
 yarn.lock
 /index.html
 dist
+
+.DS_Store

@@ -19,7 +19,7 @@
         <!-- <el-button size="mini" type="danger" @click="showTemplate">生成组件</el-button> -->
       </div>
     </div>
-    <fc-designer ref="designer" />
+    <fc-designer ref="designer" :mask="false" />
 
     <!-- <ElFooter class="_fc-copyright" height="30px">
           <div class="_fc-b-item">

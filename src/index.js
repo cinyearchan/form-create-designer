@@ -1,6 +1,6 @@
 /* eslint-disable vue/multi-word-component-names */
 import FcDesigner from "./components/FcDesigner.vue"
-import DragTool from "./components/DragTool.vue"
+import DragTool from "./components/DragTool.vue" // 拖拽时显示在组件上的工具——提供复制粘贴删除组件功能
 import Struct from "./components/Struct.vue"
 import Fetch from "./components/Fetch.vue"
 import Validate from "./components/Validate.vue"
